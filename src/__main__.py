@@ -10,8 +10,73 @@ from PIL import Image
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
+
+class Cookie:
+    def __init__(self, domain, expirationDate, hostOnly, httpOnly, name, path,
+                 sameSite, secure, session, storeId, value):
+        self.domain = domain
+        self.expirationDate = expirationDate
+        self.hostOnly = hostOnly
+        self.httpOnly = httpOnly
+        self.name = name
+        self.path = path
+        self.sameSite = sameSite
+        self.secure = secure
+        self.session = session
+        self.storeId = storeId
+        self.value = value
+
+    def to_dict(self):
+        return {
+            "domain": self.domain,
+            "expirationDate": self.expirationDate,
+            "hostOnly": self.hostOnly,
+            "httpOnly": self.httpOnly,
+            "name": self.name,
+            "path": self.path,
+            "sameSite": self.sameSite,
+            "secure": self.secure,
+            "session": self.session,
+            "storeId": self.storeId,
+            "value": self.value,
+        }
+
+# load cookies from a JSON file (if file exists)
+def load_cookies_from_file(filename="cookie.json"):
+    cookies = []
+    print("✦ Loading Cookies...")
+    if not os.path.exists(filename):
+        print(f"✗ Cookie file '{filename}' not found. Skipping...")
+        return cookies
+
+    try:
+        with open(filename, "r") as f:
+            data = json.load(f)
+            for item in data:
+                cookies.append(
+                    Cookie(
+                        domain=item.get("domain"),
+                        expirationDate=item.get("expirationDate"),
+                        hostOnly=item.get("hostOnly"),
+                        httpOnly=item.get("httpOnly"),
+                        name=item.get("name"),
+                        path=item.get("path"),
+                        sameSite=item.get("sameSite"),
+                        secure=item.get("secure"),
+                        session=item.get("session"),
+                        storeId=item.get("storeId"),
+                        value=item.get("value"),
+                    )
+                )
+        print("✓ Cookies has been loaded successfully.")
+    except json.JSONDecodeError as e:
+        print(f"✗ Error: an error occurred while decoding cookie file: {e}. Skipping...")
+    except Exception as e:
+        print(f"✗ Error: An error occurred while loading cookies: {e}. Skipping...")
+    return cookies
+
 # Fetches a URL with retry logic in case of failure
-def fetch_with_retries(url):
+def fetch_with_retries(url, cookies=None):
     max_retries = 5
     for i in range(max_retries):
         try:
@@ -19,7 +84,15 @@ def fetch_with_retries(url):
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
                 "Referer": "https://comic-days.com"
             }
-            resp = requests.get(url, headers=headers, timeout=15)
+            # Prepare cookies for requests
+            req_cookies = {}
+            if cookies:
+                for cookie in cookies:
+                    req_cookies[cookie.name] = cookie.value
+
+            resp = requests.get(
+                url, headers=headers, cookies=req_cookies, timeout=15
+            )
             resp.raise_for_status()
             return resp
         except Exception as e:
@@ -29,12 +102,12 @@ def fetch_with_retries(url):
                 raise e
 
 # Extracts JSON data embedded in the HTML of the chapter page
-def extract_chapter_json(page_url):
-    resp = fetch_with_retries(page_url)
+def extract_chapter_json(page_url, cookies=None):
+    resp = fetch_with_retries(page_url, cookies=cookies)
     soup = BeautifulSoup(resp.text, "lxml")
     json_data = soup.find(id="episode-json")
     if not json_data or not json_data.has_attr("data-value"):
-        raise ValueError("Chapter data could not be found!")
+        raise ValueError("Data couldn't be found!")
     unescaped = html.unescape(json_data["data-value"])
     return json.loads(unescaped)
 
@@ -112,8 +185,8 @@ def restore_right_strip(deob_img, orig_img, width, height, strip_width):
     deob_img.paste(strip, (width - strip_width, 0))
 
 # Downloads and processes a single image page
-def process_page(page, index, output_dir):
-    img_resp = fetch_with_retries(page["src"])
+def process_page(page, index, output_dir, cookies=None):
+    img_resp = fetch_with_retries(page["src"], cookies=cookies)
     orig_img = Image.open(io.BytesIO(img_resp.content)).convert("RGBA")
 
     deob = deobfuscate(orig_img, page["width"], page["height"])
@@ -124,17 +197,17 @@ def process_page(page, index, output_dir):
     deob.save(file_path)
 
 # Downloads an entire chapter and saves as a ZIP archive
-def download_chapter(chapter_id, output_path):
+def download_chapter(chapter_id, output_path, cookies=None):
     chapter_url = f"https://comic-days.com/episode/{chapter_id}"
 
     with tempfile.TemporaryDirectory() as temp_dir:
-        print(f"[+] Fetching...")
-        json_blob = extract_chapter_json(chapter_url)
+        print(f"✦ Fetching...")
+        json_blob = extract_chapter_json(chapter_url, cookies=cookies)
         pages = parse_pages(json_blob)
 
-        print(f"[+] Processing {len(pages)} Pages...")
-        for i, page in enumerate(tqdm(pages, desc="[+] Processing", bar_format="{l_bar}{bar} {n_fmt}/{total_fmt}"), 1):
-            process_page(page, i, temp_dir)
+        print(f"✦ Processing {len(pages)} Pages...")
+        for i, page in enumerate(tqdm(pages, desc="✦ Processing", bar_format="{l_bar}{bar} {n_fmt}/{total_fmt}"), 1):
+            process_page(page, i, temp_dir, cookies=cookies)
 
         zip_filename = os.path.abspath(output_path or f"{chapter_id}.zip")
         with zipfile.ZipFile(zip_filename, "w") as zipf:
@@ -142,17 +215,20 @@ def download_chapter(chapter_id, output_path):
                 if img_file.endswith(".png"):
                     zipf.write(os.path.join(temp_dir, img_file), arcname=img_file)
 
-        print(f"[✓] Deobfuscated & Downloaded")
+        print(f"✓ Deobfuscated & Downloaded")
 
 # Main entry point
 def main():
-    print("=== Comic-Days Chapter Downloader ===")
-    chapter_id = input("Chapter ID: ").strip()
+    print("「 ✦ Comic-Days Chapter Downloader ✦ 」")
+    
+    # Load cookies at the start
+    cookies = load_cookies_from_file()
+    chapter_id = input("➤ Chapter ID: ").strip()
 
     try:
-        download_chapter(chapter_id, f"{chapter_id}.zip")
+        download_chapter(chapter_id, f"{chapter_id}.zip", cookies=cookies)
     except Exception as e:
-        print(f"[✗] Error: {e}")
+        print(f"✗ Error: {e}")
 
 if __name__ == "__main__":
     main()

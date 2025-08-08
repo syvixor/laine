@@ -53,10 +53,34 @@ You have to use just the ID:
 2550912965469911422
 ```
 
+### 🔑 Auth Setup
+
+Create `cookie.json` in root directory:
+
+```json
+[
+    {
+        "domain": "comic-days.com",
+        "expirationDate": 1786178421.644756,
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": "glsc",
+        "path": "/",
+        "sameSite": null,
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "COOKIE_VALUE"
+    }
+]
+```
+
+> Use browser devtools to extract fresh cookie values, or use this [extension](https://cookie-editor.com), just hit export and select json.
+
 ### 📜 License
 
 This project is available under the [MIT License](LICENSE).
 
-### Disclaimer
+### 📢 Disclaimer
 
 This tool is intended for `educational` and `personal use` only. Please respect the terms of service of Comic-Days and any applicable copyright laws.
