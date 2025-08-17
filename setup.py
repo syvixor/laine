@@ -5,14 +5,15 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="laine",
-    version="0.1.1",
+    version="0.1.2",
     packages=find_packages(),
     install_requires=[
         "requests",
         "beautifulsoup4",
         "pillow",
         "tqdm",
-        "lxml"
+        "lxml",
+        "InquirerPy"
     ],
     entry_points={
         "console_scripts": [
@@ -20,7 +21,7 @@ setup(
         ]
     },
     author="syvixor",
-    description="A CLI tool to download and deobfuscate Comic-Days manga chapters.",
+    description="A CLI tool to download and deobfuscate manga chapters from multiple official Japanese providers.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/syvixor/laine",

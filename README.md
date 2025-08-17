@@ -1,10 +1,15 @@
 ## 🌊 Laine
 
-A CLI tool to download and deobfuscate Comic-Days manga chapters.
+A CLI tool to download and deobfuscate manga chapters from multiple official Japanese providers.
 
 ### 🪐 Features
+- Supports multiple providers:
+  - Shonen Jump+
+  - Comic-Days
+  - Comic-Action
+  - & More...
 
-- Downloads all pages of a Comic-Days chapter.
+- Downloads all pages of a chapter.
 - Deobfuscates scrambled image blocks.
 - Restores any missing transparency on the right side.
 - Saves pages as PNG images inside a ZIP archive.
@@ -20,6 +25,7 @@ Dependencies are automatically installed with `pip`:
 - `pillow`
 - `tqdm`
 - `lxml`
+- `InquirerPy`
 
 ### 🚀 Installation
 
@@ -37,9 +43,11 @@ Once installed, run the command:
 laine
 ```
 
-You'll be prompted to enter a valid chapter ID, and the result will be a ZIP archive containing clean, deobfuscated PNG images of the manga chapter.
+- You’ll first select a provider using an arrow-key menu.
+- Then you’ll enter the chapter ID.
+- The result will be a ZIP archive containing clean, deobfuscated PNG images of the manga chapter.
 
-### ❓ Example
+### ❓ Example (Comic-Days Example)
 
 If the chapter URL is:
 
@@ -53,7 +61,7 @@ You have to use just the ID:
 2550912965469911422
 ```
 
-### 🔑 Auth Setup
+### 🔑 Auth Setup (Comic-Days Example)
 
 Create `cookie.json` in root directory:
 
