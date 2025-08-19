@@ -1,14 +1,9 @@
 ## 🌊 Laine
 
-A CLI tool to download and deobfuscate manga chapters from multiple official Japanese providers.
+A CLI tool to deobfuscate & download manga chapters from multiple official Japanese providers.
 
 ### 🪐 Features
-- Supports multiple providers:
-  - Shonen Jump+
-  - Comic-Days
-  - Comic-Action
-  - & More...
-
+- Supports multiple official japanese providers.
 - Downloads all pages of a chapter.
 - Deobfuscates scrambled image blocks.
 - Restores any missing transparency on the right side.
@@ -34,6 +29,16 @@ pip install laine
 ```
 
 > 🔒 Make sure you have Python 3.7+ and pip installed.
+
+### 💎 Providers
+
+| Provider         | Base URL                                   | Auth (Cookies) | Tested |
+|------------------|--------------------------------------------|----------------|--------|
+| **Comic Days**   | [Visit](https://comic-days.com)            | ✅ Supported   | ✅ Yes |
+| **Comic Gardo**  | [Visit](https://comic-gardo.com)           | ✅ Supported   | ✅ Yes |
+| **Comic Zenon**  | [Visit](https://comic-zenon.com)           | ✅ Supported   | ✅ Yes |
+| **Flat Hero's**  | [Visit](https://viewer.heros-web.com)      | ✅ Supported   | ✅ Yes |
+
 
 ### ✨ Usage
 

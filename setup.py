@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="laine",
-    version="0.1.2",
+    version="0.1.3",
     packages=find_packages(),
     install_requires=[
         "requests",
@@ -21,7 +21,7 @@ setup(
         ]
     },
     author="syvixor",
-    description="A CLI tool to download and deobfuscate manga chapters from multiple official Japanese providers.",
+    description="A CLI tool to deobfuscate & download manga chapters from multiple official Japanese providers.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/syvixor/laine",

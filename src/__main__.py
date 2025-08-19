@@ -205,21 +205,17 @@ def download_chapter(chapter_id, output_path, cookies=None, base_url=None, refer
 def main():
     print("「 ✦ Multi-Site Manga Chapter Downloader ✦ 」")
     providers = {
-        "Shonen Jump+": {
-            "base_url": "https://shonenjumpplus.com/episode/",
-            "referer": "https://shonenjumpplus.com"
-        },
-        "Comic-Days": {
+        "Comic Days": {
             "base_url": "https://comic-days.com/episode/",
             "referer": "https://comic-days.com"
         },
-        "Comic-Action": {
-            "base_url": "https://comic-action.com/episode/",
-            "referer": "https://comic-action.com"
+        "Comic Gardo": {
+            "base_url": "https://comic-gardo.com/episode/",
+            "referer": "https://comic-gardo.com"
         },
-        "Sunday-Webry": {
-            "base_url": "https://www.sunday-webry.com/episode/",
-            "referer": "https://www.sunday-webry.com"
+        "Comic Zenon": {
+            "base_url": "https://comic-zenon.com/episode/",
+            "referer": "https://comic-zenon.com"
         },
         "Flat Hero's": {
             "base_url": "https://viewer.heros-web.com/episode/",
