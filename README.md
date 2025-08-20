@@ -32,12 +32,17 @@ pip install laine
 
 ### 💎 Providers
 
-| Provider         | Base URL                                   | Auth (Cookies) | Tested |
-|------------------|--------------------------------------------|----------------|--------|
-| **Comic Days**   | [Visit](https://comic-days.com)            | ✅ Supported   | ✅ Yes |
-| **Comic Gardo**  | [Visit](https://comic-gardo.com)           | ✅ Supported   | ✅ Yes |
-| **Comic Zenon**  | [Visit](https://comic-zenon.com)           | ✅ Supported   | ✅ Yes |
-| **Flat Hero's**  | [Visit](https://viewer.heros-web.com)      | ✅ Supported   | ✅ Yes |
+| Provider           | Base URL                                     | Auth Support (Cookies) | Tested |
+|--------------------|----------------------------------------------|------------------------|--------|
+| **Comic Action**   | [Visit](https://comic-action.com)            | ⚠️ Unknown             | ⚠️ No  |
+| **Comic Days**     | [Visit](https://comic-days.com)              | ✅ Supported           | ✅ Yes |
+| **Comic Gardo**    | [Visit](https://comic-gardo.com)             | ✅ Supported           | ✅ Yes |
+| **Comic Zenon**    | [Visit](https://comic-zenon.com)             | ✅ Supported           | ✅ Yes |
+| **Flat Hero's**    | [Visit](https://viewer.heros-web.com)        | ✅ Supported           | ✅ Yes |
+| **Magcomi**        | [Visit](https://magcomi.com)                 | ⚠️ Unknown             | ⚠️ No  |
+| **Shonen Jump+**   | [Visit](https://shonenjumpplus.com)          | ⚠️ Unknown             | ⚠️ No  |
+| **Sunday Webry**   | [Visit](https://www.sunday-webry.com)        | ⚠️ Unknown             | ⚠️ No  |
+| **Tonarinoyj**     | [Visit](https://tonarinoyj.jp)               | ⚠️ Unknown             | ⚠️ No  |
 
 
 ### ✨ Usage
