@@ -20,7 +20,7 @@ Dependencies are automatically installed with `pip`:
 - `pillow`
 - `tqdm`
 - `lxml`
-- `InquirerPy`
+- `questionary`
 
 ### 🚀 Installation
 
