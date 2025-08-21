@@ -39,8 +39,8 @@ pip install laine
 | **Comic Gardo**    | [Visit](https://comic-gardo.com)             | ✅ Supported           | ✅ Yes |
 | **Comic Zenon**    | [Visit](https://comic-zenon.com)             | ✅ Supported           | ✅ Yes |
 | **Flat Hero's**    | [Visit](https://viewer.heros-web.com)        | ✅ Supported           | ✅ Yes |
-| **Magcomi**        | [Visit](https://magcomi.com)                 | ⚠️ Unknown             | ⚠️ No  |
-| **Shonen Jump+**   | [Visit](https://shonenjumpplus.com)          | ⚠️ Unknown             | ⚠️ No  |
+| **Magcomi**        | [Visit](https://magcomi.com)                 | ✅ Supported           | ✅ Yes |
+| **Shonen Jump+**   | [Visit](https://shonenjumpplus.com)          | ✅ Supported           | ✅ Yes |
 | **Sunday Webry**   | [Visit](https://www.sunday-webry.com)        | ⚠️ Unknown             | ⚠️ No  |
 | **Tonarinoyj**     | [Visit](https://tonarinoyj.jp)               | ⚠️ Unknown             | ⚠️ No  |
 
