@@ -9,7 +9,7 @@ import html
 from PIL import Image
 from bs4 import BeautifulSoup
 from tqdm import tqdm
-from InquirerPy import inquirer
+import questionary
 
 # ╔══════════════════════════════════════════════════════════════╗
 # ║                         COOKIE CLASS                         ║
@@ -204,7 +204,7 @@ def process_page(page, index, output_dir, cookies=None, referer=None):
 def download_chapter(chapter_id, output_path, cookies=None, base_url=None, referer=None):
     chapter_url = f"{base_url}{chapter_id}"
     with tempfile.TemporaryDirectory() as temp_dir:
-        print(f"✦ Fetching...")
+        print("✦ Fetching...")
         json_blob = extract_chapter_json(chapter_url, cookies=cookies, referer=referer)
         pages = parse_pages(json_blob)
         print(f"✦ Processing {len(pages)} Pages...")
@@ -215,7 +215,7 @@ def download_chapter(chapter_id, output_path, cookies=None, base_url=None, refer
             for img_file in sorted(os.listdir(temp_dir)):
                 if img_file.endswith(".png"):
                     zipf.write(os.path.join(temp_dir, img_file), arcname=img_file)
-        print(f"✓ Deobfuscated & Downloaded")
+        print("✓ Deobfuscated & Downloaded")
 
 # ╔══════════════════════════════════════════════════════════════╗
 # ║                            MAIN                              ║
@@ -261,10 +261,16 @@ def main():
             "referer": "https://tonarinoyj.jp"
         }
     }
-    choice = inquirer.select(
-        message="Select Provider:",
+
+    choice = questionary.select(
+        "Select Provider:",
         choices=list(providers.keys())
-    ).execute()
+    ).ask()
+
+    if not choice:
+        print("✗ No provider selected. Exiting...")
+        return
+
     provider = providers[choice]
     cookies = load_cookies_from_file()
     chapter_id = input("➤ Chapter ID: ").strip()
@@ -278,7 +284,6 @@ def main():
         )
     except Exception as e:
         print(f"✗ Error: {e}")
-
 
 if __name__ == "__main__":
     main()
