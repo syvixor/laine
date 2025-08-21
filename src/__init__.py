@@ -2,7 +2,7 @@
 A CLI tool to deobfuscate & download manga chapters from multiple official Japanese providers.
 """
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 __description__ = "A CLI tool to deobfuscate & download manga chapters from multiple official Japanese providers."
 __repository__ = "syvixor/laine"
 __url_repository__ = "https://github.com"
