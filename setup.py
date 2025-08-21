@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="laine",
-    version="0.1.7",
+    version="0.1.8",
     packages=find_packages(),
     install_requires=[
         "requests",
@@ -13,7 +13,7 @@ setup(
         "pillow",
         "tqdm",
         "lxml",
-        "InquirerPy"
+        "questionary"
     ],
     entry_points={
         "console_scripts": [
