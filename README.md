@@ -34,15 +34,15 @@ pip install laine
 
 | Provider           | Base URL                                     | Auth Support (Cookies) | Tested |
 |--------------------|----------------------------------------------|------------------------|--------|
-| **Comic Action**   | [Visit](https://comic-action.com)            | ⚠️ Unknown             | ⚠️ No  |
+| **Comic Action**   | [Visit](https://comic-action.com)            | ✅ Supported           | ✅ Yes |
 | **Comic Days**     | [Visit](https://comic-days.com)              | ✅ Supported           | ✅ Yes |
 | **Comic Gardo**    | [Visit](https://comic-gardo.com)             | ✅ Supported           | ✅ Yes |
 | **Comic Zenon**    | [Visit](https://comic-zenon.com)             | ✅ Supported           | ✅ Yes |
 | **Flat Hero's**    | [Visit](https://viewer.heros-web.com)        | ✅ Supported           | ✅ Yes |
 | **Magcomi**        | [Visit](https://magcomi.com)                 | ✅ Supported           | ✅ Yes |
 | **Shonen Jump+**   | [Visit](https://shonenjumpplus.com)          | ✅ Supported           | ✅ Yes |
-| **Sunday Webry**   | [Visit](https://www.sunday-webry.com)        | ⚠️ Unknown             | ⚠️ No  |
-| **Tonarinoyj**     | [Visit](https://tonarinoyj.jp)               | ⚠️ Unknown             | ⚠️ No  |
+| **Sunday Webry**   | [Visit](https://www.sunday-webry.com)        | ⚠️ Unsupported         | ✅ Yes |
+| **Tonarinoyj**     | [Visit](https://tonarinoyj.jp)               | ⚠️ Unsupported         | ✅ Yes |
 
 
 ### ✨ Usage
