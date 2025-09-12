@@ -41,8 +41,8 @@ pip install laine
 | **Flat Hero's**    | [Visit](https://viewer.heros-web.com)        | ✅ Supported           | ✅ Yes |
 | **Magcomi**        | [Visit](https://magcomi.com)                 | ✅ Supported           | ✅ Yes |
 | **Shonen Jump+**   | [Visit](https://shonenjumpplus.com)          | ✅ Supported           | ✅ Yes |
-| **Sunday Webry**   | [Visit](https://www.sunday-webry.com)        | ⚠️ Unsupported         | ✅ Yes |
-| **Tonarinoyj**     | [Visit](https://tonarinoyj.jp)               | ⚠️ Unsupported         | ✅ Yes |
+| **Sunday Webry**   | [Visit](https://www.sunday-webry.com)        | ⚠️ Unavailable         | ✅ Yes |
+| **Tonarinoyj**     | [Visit](https://tonarinoyj.jp)               | ⚠️ Unavailable         | ✅ Yes |
 
 
 ### ✨ Usage
@@ -57,28 +57,32 @@ laine
 - Then you’ll enter the chapter ID.
 - The result will be a ZIP archive containing clean, deobfuscated PNG images of the manga chapter.
 
-### ❓ Example (Comic-Days Example)
+### ❓ Example
+
+> Using `Comic Action` as an example.
 
 If the chapter URL is:
 
 ```md
-https://comic-days.com/episode/2550912965469911422
+https://comic-action.com/episode/2550912965914166712
 ```
 
 You have to use just the ID:
 
 ```md
-2550912965469911422
+2550912965914166712
 ```
 
-### 🔑 Auth Setup (Comic-Days Example)
+### 🔑 Auth Setup
+
+> Using `Comic Action` as an example.
 
 Create `cookie.json` in root directory:
 
 ```json
 [
     {
-        "domain": "comic-days.com",
+        "domain": "comic-action.com",
         "expirationDate": 1786178421.644756,
         "hostOnly": true,
         "httpOnly": true,
@@ -101,4 +105,4 @@ This project is available under the [MIT License](LICENSE).
 
 ### 📢 Disclaimer
 
-This tool is intended for `educational` and `personal use` only. Please respect the terms of service of Comic-Days and any applicable copyright laws.
+This tool is intended for `educational` and `personal use` only. Please respect the terms of service of each provider and any applicable copyright laws.
