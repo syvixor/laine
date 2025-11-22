@@ -228,6 +228,10 @@ def main():
             "base_url": "https://comic-action.com/episode/",
             "referer": "https://comic-action.com"
         },
+        "Comic Border": {
+            "base_url": "https://comicborder.com/episode/",
+            "referer": "https://comicborder.com"
+        },
         "Comic Days": {
             "base_url": "https://comic-days.com/episode/",
             "referer": "https://comic-days.com"
@@ -236,6 +240,10 @@ def main():
             "base_url": "https://comic-gardo.com/episode/",
             "referer": "https://comic-gardo.com"
         },
+        "Comic Trail": {
+            "base_url": "https://comic-trail.com/episode/",
+            "referer": "https://comic-trail.com"
+        },
         "Comic Zenon": {
             "base_url": "https://comic-zenon.com/episode/",
             "referer": "https://comic-zenon.com"
@@ -243,6 +251,10 @@ def main():
         "Flat Hero's": {
             "base_url": "https://viewer.heros-web.com/episode/",
             "referer": "https://viewer.heros-web.com"
+        },
+        "Kuragebunch": {
+            "base_url": "https://kuragebunch.com/episode/",
+            "referer": "https://kuragebunch.com"
         },
         "Magcomi": {
             "base_url": "https://magcomi.com/episode/",
